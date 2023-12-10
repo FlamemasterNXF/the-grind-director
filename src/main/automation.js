@@ -17,6 +17,10 @@ function toggleAuto(i){
 }
 
 function automateReset(i){
+    if(i === 1 && getInfinityTubeEffect(1).gt(1) && resetData[i].currency().gte(getResetCost(i))){
+        data.resets[i] = data.resets[i].plus(D(getInfinityTubeEffect(1)))
+        return updateResetHTML(i)
+    }
     if(data.autoEnabled[i] && resetData[i].currency().gte(getResetCost(i))){
         data.resets[i] = data.resets[i].plus(D(1))
         updateResetHTML(i)

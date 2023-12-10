@@ -23,10 +23,20 @@ const resetData = [
         costBase: D("1e1000"),
         costExponent: () => D(1000).pow(resetData[2].scaling()),
         scaling: () => D(5).pow(Decimal.floor(data.resets[2].div(2))),
-        eff: () => D(3).pow(data.resets[1]),
+        //eff: () => D(3).pow(data.resets[2]),
         currency: () => data.number,
         resetDesc: 'Number and previous Resets',
         desc: 'Square Root Reset 2\'s Scaling',
+        costDesc: 'Number'
+    },
+    {
+        costBase: D("e1e1000"),
+        costExponent: () => D("1e100").pow(resetData[3].scaling()),
+        scaling: () => D(1e4).pow(Decimal.floor(data.resets[3].div(1))),
+        eff: () => D(2).pow(data.resets[3]),
+        currency: () => data.number,
+        resetDesc: 'Number and previous Resets',
+        desc: 'Raise the 2nd Infinity Tube Effect and Number to the 2nd Power',
         costDesc: 'Number'
     },
 ]
@@ -37,7 +47,7 @@ function initResets(){
         let el = document.createElement('button')
         el.className = 'reset'
         el.id = `reset${i}`
-        el.innerHTML = `Reset ${i+1} [${data.resets[i]}]<br>Reset ${resetData[i].resetDesc} but ${resetData[i].desc}<br>Cost: ${format(getResetCost(i))} ${resetData[i].costDesc}`
+        el.innerHTML = `Reset ${i+1} [${formatWhole(data.resets[i])}]<br>Reset ${resetData[i].resetDesc} but ${resetData[i].desc}<br>Cost: ${format(getResetCost(i))} ${resetData[i].costDesc}`
         el.addEventListener("click", ()=>reset(i))
         el.style.display = isXUnlocked(`reset${i}`) ? 'block' : 'none'
         container.append(el)
@@ -45,7 +55,7 @@ function initResets(){
 }
 
 function updateResetHTML(i){
-    DOM(`reset${i}`).innerHTML = `Reset ${i+1} [${data.resets[i]}]<br>Reset ${resetData[i].resetDesc} but ${resetData[i].desc}<br>Cost: ${format(getResetCost(i))} ${resetData[i].costDesc}`
+    DOM(`reset${i}`).innerHTML = `Reset ${i+1} [${formatWhole(data.resets[i])}]<br>Reset ${resetData[i].resetDesc} but ${resetData[i].desc}<br>Cost: ${format(getResetCost(i))} ${resetData[i].costDesc}`
 }
 
 function reset(n){
@@ -63,5 +73,5 @@ function reset(n){
     updateResetHTML(n)
 }
 
-let getResetCost = (i) => data.resets[i].gt(0) ? resetData[i].costBase.pow((data.resets[i].times(resetData[i].costExponent()))) : resetData[i].costBase
+let getResetCost = (i, amt=data.resets[i]) => data.resets[i].gt(0) ? resetData[i].costBase.pow((amt.times(resetData[i].costExponent()))) : resetData[i].costBase
 let getResetEffect = (i) => Decimal.max(1, resetData[i].eff())

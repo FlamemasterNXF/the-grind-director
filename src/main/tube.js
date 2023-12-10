@@ -7,6 +7,27 @@ let tubeMilestones = [
         currencyName: 'Number'
     },
     {
+        req: 7,
+        currency: () => data.resets[2],
+        effect: () => data.resets[0].plus(1).pow(getResetEffect(3)),
+        desc: 'You may now Bulk Automate Reset 2 if you can afford at least one Reset 2, and each Reset 1 increases the Reset 2 Bulk Automate Amount by 1',
+        currencyName: 'Reset 3'
+    },
+    {
+        req: D("ee27393100"),
+        currency: () => data.number,
+        effect: () => D("e1e100").pow(data.resets[2]),
+        desc: 'Reset 3 now raises Number gain to the e1e100th power',
+        currencyName: 'Number'
+    },
+    {
+        req: D("eee1e308"),
+        currency: () => data.number,
+        effect: () => 2,
+        desc: 'Unlock the J',
+        currencyName: 'Number'
+    },
+    {
         req: Infinity,
         currency: () => data.number,
         effect: () => 2,
@@ -21,7 +42,7 @@ function initTubeHTML() {
         let el = document.createElement('t')
         el.className = 'tubeMilestone'
         el.id = `tubeMilestone${i}`
-        el.innerText = `Upon your ${i+1}${i===0 ? 'st' : i === 1 ? 'nd' : 'th'} Entry: ${tubeMilestones[i].desc}`
+        el.innerText = `Upon your ${i+1}${i===0 ? 'st' : i === 1 ? 'nd' : i === 2 ? 'rd' : 'th'} Entry: ${tubeMilestones[i].desc}`
         el.style.color = data.infinityTubes > i ? 'darkgoldenrod' : 'gray'
         container.append(el)
     }
