@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="styles/misc.css" />
+    <link rel="stylesheet" type="text/css" href="styles/classes.css" />
+    <link rel="stylesheet" type="text/css" href="styles/Modal.css" />
+    <link rel="stylesheet" type="text/css" href="styles/tooltip.css" />
+    <link rel="icon" href="res/gator.png" type="image/gif" sizes="32x32" />
+
+    <script defer src="src/internal/BreakEternity.js"></script>
+    <script defer src="src/internal/ExpantaNum.js"></script>
+    <script defer src="src/internal/Formatting.js"></script>
+    <script defer src="src/internal/FormatExpantanum.js"></script>
+    <script defer src="src/internal/Helpers.js"></script>
+
+    <script defer src="src/etc/modal.js"></script>
+    <script defer src="src/etc/hotkeys.js"></script>
+    <script defer src="src/etc/tabs.js"></script>
+
+    <script defer src="src/data.js"></script>
+    <script defer src="src/main.js"></script>
+    <script defer src="src/update.js"></script>
+
+    <title>The Grind: Director's Cut</title>
+</head>
+<body>
+<div class="layer" id="modalLayer" style="pointer-events: none">
+    <div id="promptContainer" class="flexbox modalContainer">
+        <div id="prompt">
+            <h3 id="promptTitle"></h3>
+            <p id="promptDesc"></p>
+            <input id="promptInput" type="text" placeholder="">
+            <button id="promptButton">Submit</button>
+            <button id="promptCancelButton" onclick="closeModal('prompt')">Cancel</button>
+        </div>
+    </div>
+    <div class="flexbox modalContainer" id="alertContainer">
+        <div id="alert">
+            <h3 id="alertTitle">Welcome back!</h3>
+            <p id="alertContent">New things have been added since last time</p>
+            <button id="closeAlert" onclick="closeModal('alert')">Thanks!</button>
+            <br>
+        </div>
+    </div>
+    <div id="confirmContainer" class="flexbox modalContainer">
+        <div id="confirm" class="flexCol">
+            <h3 id="confirmTitle">Are you sure?</h3>
+            <p id="confirmContent" style="margin-bottom:1vh">New things have been added since last time</p>
+            <div class="flexRow">
+                <button id="noConfirm" class="lockedResearch" style="margin-right:0.5vw">No!</button>
+                <button id="yesConfirm" class="unlockedResearch" style="margin-left:0.5vw">Yes!</button>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>
+<div class="layer" id="gameLayer">
+    <div class="centeredTexts" id="number" style="margin-bottom: 0.5rem; color: orangered">Watering Alt Yay!</div>
+    <div class="flexBox" id="tabs" style="margin-bottom: 0.5rem">
+        <button class="tabButton" id="markupNav" onclick="switchTab('main'); switchSubtab(mainTab, 'main')" style="color: #da2020; border-color: #781313 ">Reset</button>
+        <button class="tabButton" id="settingsNav" onclick="switchTab('settings')" style="color: gray; border-color: #4a4a4a">Settings</button>
+    </div>
+    <div class="flexBox" id="mainPage" style="flex-direction: column">
+        <div class="flexBox" id="resetSubPage" style="flex-direction: column">
+            <button class="settingsButton" onclick="save()">You have alerted the gwa</button>
+        </div>
+    </div>
+    <div class="flexBox" id="settingsPage" style="flex-direction: column">
+        <p class="centeredTexts">Consider joining <a href="https://discord.com/invite/dauxGZwc9u" target="_blank">the Discord</a> :)</p>
+        <div class="flexBox" id="savingSubPage" style="flex-direction: column">
+            <button class="settingsButton" onclick="save()">Manual Save</button>
+            <button class="settingsButton" onclick="exportSave()">Export your Save</button>
+            <button class="settingsButton" onclick="downloadSave()">Download your Save</button>
+            <button class="settingsButton" onclick="createPrompt('Import SaveData', importSave, true)">Import your Save</button>
+            <button class="settingsButton" onclick="createConfirmation('Are you sure?', 'Are you absolutely sure you want to do this?\nThis will export your save (just in case) but delete your save from LocalStorage.', 'No Way!', 'Yes, I understand the consequences.', fullReset)" style="color: red">Delete your Save</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

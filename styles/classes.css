@@ -1,0 +1,32 @@
+.flexBox {
+    display: flex;
+    align-items: center;
+    place-content:center
+}
+.generalTexts{
+    color: white;
+    font-family: DosisLight;
+}
+.centeredTexts{
+    color: white;
+    font-family: DosisLight;
+    text-align: center;
+}
+.layer{
+    position: absolute;
+}
+.tabButton{
+    width: 5rem;
+    height: 1.5rem;
+    margin-left: 0.3rem;
+    background: black;
+    border: 2px solid;
+}
+.settingsButton{
+    width: 10rem;
+    height: 1.5rem;
+    margin-top: 0.5rem;
+    color: darkgray;
+    background: black;
+    border: 2px solid rgb(128, 128, 128);
+}
