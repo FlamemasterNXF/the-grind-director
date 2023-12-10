@@ -28,6 +28,14 @@ let tubeMilestones = [
         currencyName: 'Number'
     },
     {
+        req: D("e1e308"),
+        currency: () => data.j,
+        effect: () => Decimal.max(1, Decimal.slog(data.j)),
+        effect2: () => D(2).pow(data.jup[3]),
+        desc: 'Raise Number gain to the Super Log of J, SPLIT no longer Resets <b>J</b> or REM�VE "Number", each SPLIT increases the <b>J</b> OBTAINING� Automator Bulk Amount by 1, and unlock Reset 5',
+        currencyName: 'J'
+    },
+    {
         req: Infinity,
         currency: () => data.number,
         effect: () => 2,
@@ -42,7 +50,7 @@ function initTubeHTML() {
         let el = document.createElement('t')
         el.className = 'tubeMilestone'
         el.id = `tubeMilestone${i}`
-        el.innerText = `Upon your ${i+1}${i===0 ? 'st' : i === 1 ? 'nd' : i === 2 ? 'rd' : 'th'} Entry: ${tubeMilestones[i].desc}`
+        el.innerHTML = `Upon your ${i+1}${i===0 ? 'st' : i === 1 ? 'nd' : i === 2 ? 'rd' : 'th'} Entry: ${tubeMilestones[i].desc}`
         el.style.color = data.infinityTubes > i ? 'darkgoldenrod' : 'gray'
         container.append(el)
     }

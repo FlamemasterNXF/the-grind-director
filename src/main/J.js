@@ -40,7 +40,7 @@ function initJUPS(){
 }
 
 function updateJHTML(){
-    DOM(`j`).innerHTML = `YOU HAVE <span style="font-size: 1.5rem">${format(data.j)}</span> J${data.jup[3].gt(0) ? `/${data.jup[3].plus(1)}` : ''}.<br><span style="font-size: 1rem; font-family: DosisLight">You are OBTAINING� ${format(jGain())}/s</span>`
+    DOM(`j`).innerHTML = `YOU HAVE <span style="font-size: 1.5rem">${format(data.j)}</span> J${data.jup[3].gt(0) ? `/${formatWhole(data.jup[3].plus(1))}` : ''}.<br><span style="font-size: 1rem; font-family: DosisLight">You are OBTAINING� ${format(jGain())}/s</span>`
 }
 function updateJUPHTML(i){
     DOM(`jup${i}`).innerHTML = `${jupData[i].desc} ${i === 3 ? '' : `but REM�VE "Number"`}<br>Cost: ${format(jupData[i].cost())} J`
@@ -51,7 +51,7 @@ function buyJUP(i){
     removeNumber()
 
     i === 3 ? data.j = D(1) : data.j = data.j.sub(jupData[i].cost())
-    data.jup[i] = data.jup[i].plus(1)
+    data.jup[i] = data.jup[i].plus(D(1))
 
     updateJUPHTML(i)
 }
@@ -67,13 +67,19 @@ function toggleSplitAuto(){
 
 function automateJUP(i){
     if(data.jAuto && data.j.gte(jupData[i].cost())){
-        data.jup[i] = data.jup[i].plus(D(1))
+        data.jup[i] = data.jup[i].plus(D(1).plus(tubeMilestones[4].effect2()))
         updateJUPHTML(i)
     }
 }
 
 function automateSplits(){
-    if(data.splitAuto) buyJUP(3)
+    if(data.splitAuto){
+        if(data.infinityTubes > 4){
+            data.jup[3] = data.jup[3].plus(D(2).pow(getResetEffect(4)))
+            return updateJUPHTML(3)
+        }
+        buyJUP(3)
+    }
 }
 
 function automateJResets(){

@@ -45,6 +45,7 @@ function isXUnlocked(t){
         case 'reset1': return data.stage > 0
         case 'reset2': return data.stage > 2
         case 'reset3': return data.stage > 4
+        case 'reset4': return data.infinityTubes > 4
 
         case 'auto0' : return data.stage > 2
         case 'auto1' : return data.stage > 3

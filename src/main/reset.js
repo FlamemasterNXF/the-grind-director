@@ -33,10 +33,20 @@ const resetData = [
         costBase: D("e1e1000"),
         costExponent: () => D("1e100").pow(resetData[3].scaling()),
         scaling: () => D(1e4).pow(Decimal.floor(data.resets[3].div(1))),
-        eff: () => D(2).pow(data.resets[3]).pow(1/(2**jupData[3].effect().toNumber())),
+        eff: () => D(2).pow(data.resets[3]).pow(D(1).div(D(2).pow(jupData[3].effect()))).pow(getResetEffect(4)),
         currency: () => data.number,
         resetDesc: 'Number and previous Resets',
         desc: 'Raise the 2nd Infinity Tube Effect and Number to the 2nd Power',
+        costDesc: 'Number'
+    },
+    {
+        costBase: D("1e12"),
+        costExponent: () => D(1.85).pow(resetData[4].scaling()),
+        scaling: () => D(7).pow(Decimal.floor(data.resets[4].div(10))),
+        eff: () => D(2).pow(data.resets[4]),
+        currency: () => data.number,
+        resetDesc: 'Number and previous Resets',
+        desc: 'Raise Number gain, the 4th Reset\'s Effect, and the SPLIT Automator Bulk Amount to the 2nd Power',
         costDesc: 'Number'
     },
 ]
