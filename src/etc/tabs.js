@@ -7,16 +7,24 @@ function switchTab(tab){
 
 
 let mainTab = "reset"
+let finiteTab = "finite"
 let settingsTab = "saving"
 
 function switchSubtab(t, mode){
     if(!isTabUnlocked(t)) return
 
-    // Special Markup Rules
+    // Special Main Rules
     if(mode === "main"){
         DOM(`${mainTab}SubPage`).style.display = `none`
         DOM(`${t}SubPage`).style.display = `flex`
         mainTab = t
+    }
+
+    // Special Finite Rules
+    if(mode === "finite"){
+        DOM(`${finiteTab}SubPage`).style.display = `none`
+        DOM(`${t}SubPage`).style.display = `flex`
+        finiteTab = t
     }
 
     // Special Settings Rules

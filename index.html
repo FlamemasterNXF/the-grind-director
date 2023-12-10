@@ -26,6 +26,7 @@
     <script defer src="src/main/reveal.js"></script>
     <script defer src="src/main/number.js"></script>
     <script defer src="src/main/reset.js"></script>
+    <script defer src="src/main/tube.js"></script>
 
     <title>The Grind: Director's Cut</title>
 </head>
@@ -63,12 +64,20 @@
 <div class="layer" id="gameLayer">
     <div class="centeredTexts" id="number" style="margin-bottom: 0.5rem; margin-top: 1rem; color: orangered; font-size: 1.2rem">Watering Alt Yay!</div>
     <div class="flexBox" id="tabs" style="margin-bottom: 0.5rem; margin-top: 1rem">
-        <button class="tabButton" id="markupNav" onclick="switchTab('main'); switchSubtab(mainTab, 'main')" style="color: #da2020; border-color: #781313 ">Reset</button>
+        <button class="tabButton" id="mainNav" onclick="switchTab('main'); switchSubtab(mainTab, 'main')" style="color: #da2020; border-color: #781313 ">Reset</button>
+        <button class="tabButton" id="finiteNav" onclick="switchTab('finite'); switchSubtab(finiteTab, 'finite')" style="color: #da5220; border-color: #784013 ">Infinity Tube</button>
         <button class="tabButton" id="settingsNav" onclick="switchTab('settings')" style="color: gray; border-color: #4a4a4a">Settings</button>
     </div>
     <div class="flexBox" id="mainPage" style="flex-direction: column">
         <div class="flexBox" id="resetSubPage" style="flex-direction: column">
             <div class="flexBox" id="resetContainer" style="flex-direction: column"></div>
+        </div>
+    </div>
+    <div class="flexBox" id="finitePage" style="flex-direction: column; display: none">
+        <div class="flexBox" id="finiteSubPage" style="flex-direction: column">
+            <button id="tubeButton" onclick="enterInfinityTube()">Tubular</button>
+            <div class="centeredTexts" id="tubes" style="margin-bottom: 0.5rem; margin-top: 2rem; color: #ce460b; font-size: 1.2rem">Watering Alt Yay!</div>
+            <div class="flexBox" id="tubeMilestoneContainer" style="flex-direction: column"></div>
         </div>
     </div>
     <div class="flexBox" id="settingsPage" style="flex-direction: column">

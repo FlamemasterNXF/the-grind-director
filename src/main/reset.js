@@ -11,7 +11,8 @@ const resetData = [
     },
     {
         costBase: D(1e5),
-        costExponent: () => D(50),
+        costExponent: () => D(50).pow(resetData[1].scaling()),
+        scaling: () => D(5).pow(Decimal.floor(data.resets[1].div(5))),
         eff: () => D(3).pow(data.resets[1]),
         currency: () => data.number,
         resetDesc: 'Number and Reset 1',

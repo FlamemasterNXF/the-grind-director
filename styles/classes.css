@@ -22,8 +22,20 @@
     border: 2px solid #4b001a;
     color: crimson;
 }
+#tubeButton{
+    width: 30rem;
+    height: 7rem;
+    background: black;
+    border: 2px solid #ce390b;
+    color: #ce460b;
+}
+.tubeMilestone{
+    margin-top: 0.5rem;
+    color: darkgoldenrod;
+    font-family: DosisLight;
+}
 .tabButton{
-    width: 5rem;
+    width: 10rem;
     height: 1.5rem;
     margin-left: 0.3rem;
     background: black;

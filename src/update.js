@@ -14,8 +14,10 @@ const uHTML = {
         switchTab('main')
 
         //Show and Hide things, based on data
+        DOM(`finiteNav`).style.display = isXUnlocked('finiteNav') ? 'block' : 'none'
 
         //Initialize all Tabs
         initResets()
+        initTubeHTML()
     }
 }
