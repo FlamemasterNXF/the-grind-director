@@ -28,6 +28,7 @@
     <script defer src="src/main/reset.js"></script>
     <script defer src="src/main/tube.js"></script>
     <script defer src="src/main/automation.js"></script>
+    <script defer src="src/main/J.js"></script>
 
     <title>The Grind: Director's Cut</title>
 </head>
@@ -67,6 +68,7 @@
     <div class="flexBox" id="tabs" style="margin-bottom: 0.5rem; margin-top: 1rem">
         <button class="tabButton" id="mainNav" onclick="switchTab('main'); switchSubtab(mainTab, 'main')" style="color: #da2020; border-color: #781313 ">Reset</button>
         <button class="tabButton" id="finiteNav" onclick="switchTab('finite'); switchSubtab(finiteTab, 'finite')" style="color: #da5220; border-color: #784013 ">Infinity Tube</button>
+        <button class="tabButton" id="jNav" onclick="switchTab('j'); switchSubtab(jTab, 'j')" style="color: #B14565; border-color: #B14565 ">The J</button>
         <button class="tabButton" id="settingsNav" onclick="switchTab('settings')" style="color: gray; border-color: #4a4a4a">Settings</button>
     </div>
     <div class="flexBox" id="mainPage" style="flex-direction: column">
@@ -81,6 +83,17 @@
             <button id="tubeButton" onclick="enterInfinityTube()">Tubular</button>
             <div class="centeredTexts" id="tubes" style="margin-bottom: 0.5rem; margin-top: 2rem; color: #ce460b; font-size: 1.2rem">Watering Alt Yay!</div>
             <div class="flexBox" id="tubeMilestoneContainer" style="flex-direction: column"></div>
+        </div>
+    </div>
+    <div class="flexBox" id="jPage" style="flex-direction: column; display: none">
+        <div class="centeredTexts" id="j" style="margin-bottom: 0.5rem; margin-top: 1rem; color: #B14565; font-size: 1.2rem; font-family: DosisSemiBold">:warning: You have alerted the J!</div>
+        <div class="flexBox" id="jSubPage" style="flex-direction: column">
+            <div class="flexBox" id="jContainer" style="flex-direction: row; margin-top: 2rem"></div>
+            <div class="flexBox" id="splitContainer" style="flex-direction: row; margin-top: 1rem"></div>
+            <div class="flexBox" style="flex-direction: row">
+                <button class="jButton" id="jAuto" style="height: 5rem; width: 15rem; margin-top: 1rem; color: #792d43; border-color: #792d43" onclick="toggleJAuto()">AUTOMATE THE JJJJ</button>
+                <button class="jButton" id="splitAuto" style="height: 5rem; width: 15rem; margin-top: 1rem; color: #792d43; border-color: #792d43" onclick="toggleSplitAuto()">AUTOMATE THE JJJJ</button>
+            </div>
         </div>
     </div>
     <div class="flexBox" id="settingsPage" style="flex-direction: column">

@@ -25,6 +25,18 @@ function reveal(){
         fade('auto3')
         ++data.stage
     }
+    if(data.infinityTubes > 3 && data.stage === 6){
+        fade('jNav')
+        ++data.stage
+    }
+    if(data.jup[3].gt(2) && data.stage === 7){
+        fade('jAuto')
+        ++data.stage
+    }
+    if(data.jup[3].gt(48) && data.stage === 8){
+        fade('splitAuto')
+        ++data.stage
+    }
 }
 
 function isXUnlocked(t){
@@ -39,7 +51,11 @@ function isXUnlocked(t){
         case 'auto2' : return data.stage > 4
         case 'auto3' : return data.stage > 5
 
+        case 'jAuto' : return data.stage > 7
+        case 'splitAuto' : return data.stage > 8
+
         case 'finiteNav' : return data.stage > 1
+        case 'jNav' : return data.stage > 6
 
         default: return false
     }

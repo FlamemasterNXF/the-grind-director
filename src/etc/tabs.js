@@ -8,6 +8,7 @@ function switchTab(tab){
 
 let mainTab = "reset"
 let finiteTab = "finite"
+let jTab = "j"
 let settingsTab = "saving"
 
 function switchSubtab(t, mode){
@@ -25,6 +26,13 @@ function switchSubtab(t, mode){
         DOM(`${finiteTab}SubPage`).style.display = `none`
         DOM(`${t}SubPage`).style.display = `flex`
         finiteTab = t
+    }
+
+    // Special J Rules
+    if(mode === "j"){
+        DOM(`${jTab}SubPage`).style.display = `none`
+        DOM(`${t}SubPage`).style.display = `flex`
+        jTab = t
     }
 
     // Special Settings Rules
