@@ -3,16 +3,16 @@ const D = x => new Decimal(x)
 
 //Version Flags
 const VERSION = "0.0"
-const VERSION_NAME = "Chat"
-const VERSION_DATE = "December 9th, 2023"
 const IS_BETA = false
 const SAVE_PATH = () => "theGrindDirectorsCutsave"
 
 //create all the variables in a data object for saving
 function getDefaultObject() {
     return {
-        nav: {current:"ord", last:"ord"},
-        lastTick: 0,
+        nav: {current:"main", last:"main"},
+        number: D(0),
+        resets: Array(5).fill(D(0)),
+        stage:0,
         loadedVersion: VERSION,
         isBeta: IS_BETA,
         offline: true,
@@ -84,7 +84,7 @@ async function downloadSave() {
         let date = new Date()
         date = ((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) + '/' + ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + '/' + date.getFullYear()
         a.href = window.URL.createObjectURL(file)
-        a.download = `Ordinal-Pringles-save-${VERSION}-${date}.txt`
+        a.download = `The-Grind-save-${VERSION}-${date}.txt`
         a.click()
         createAlert("Success!", 'Your save has been successfully downloaded!', 'Thanks!');
     } catch (e) {

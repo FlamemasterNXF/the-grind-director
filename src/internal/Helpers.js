@@ -45,3 +45,17 @@ function allEqual(arr, i){
 }
 
 let logn = (num, logBase) => num === 0 ? 0 : Math.log10(num) / Math.log10(logBase);
+
+function fade(element) {
+    let op = 0.1;  // initial opacity
+    DOM(element).style.display = 'block';
+    DOM(element).style.opacity = 0
+    const timer = setInterval(function () {
+        if (op >= 1) {
+            clearInterval(timer);
+        }
+        DOM(element).style.opacity = op;
+        DOM(element).style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op += op * 0.01;
+    }, 10);
+}

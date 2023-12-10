@@ -4,9 +4,9 @@ function mainLoop() {
     let diff = data.offline ? Math.max((Date.now() - data.lastTick), 0) : 50
     // Used for Offline Progress
     let uDiff = diff/1000
+    if(isNaN(uDiff)) uDiff = 50/1000
 
-    // Update lastTick
-    data.lastTick = Date.now()
+    data.number = data.number.plus(numberGain().times(uDiff))
 
     // Check for hotkey usage
     //if (controls["m"].pressed) something()

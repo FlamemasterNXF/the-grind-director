@@ -3,7 +3,8 @@ const TABS = ["main", "settings"]
 
 const uHTML = {
     update(){
-
+        updateNumberHTML()
+        reveal()
     },
     load(){
         //Load Tab Displays
@@ -15,6 +16,6 @@ const uHTML = {
         //Show and Hide things, based on data
 
         //Initialize all Tabs
-
+        initResets()
     }
 }

@@ -23,6 +23,10 @@
     <script defer src="src/main.js"></script>
     <script defer src="src/update.js"></script>
 
+    <script defer src="src/main/reveal.js"></script>
+    <script defer src="src/main/number.js"></script>
+    <script defer src="src/main/reset.js"></script>
+
     <title>The Grind: Director's Cut</title>
 </head>
 <body>
@@ -57,14 +61,14 @@
     </div>
 </div>
 <div class="layer" id="gameLayer">
-    <div class="centeredTexts" id="number" style="margin-bottom: 0.5rem; color: orangered">Watering Alt Yay!</div>
-    <div class="flexBox" id="tabs" style="margin-bottom: 0.5rem">
+    <div class="centeredTexts" id="number" style="margin-bottom: 0.5rem; margin-top: 1rem; color: orangered; font-size: 1.2rem">Watering Alt Yay!</div>
+    <div class="flexBox" id="tabs" style="margin-bottom: 0.5rem; margin-top: 1rem">
         <button class="tabButton" id="markupNav" onclick="switchTab('main'); switchSubtab(mainTab, 'main')" style="color: #da2020; border-color: #781313 ">Reset</button>
         <button class="tabButton" id="settingsNav" onclick="switchTab('settings')" style="color: gray; border-color: #4a4a4a">Settings</button>
     </div>
     <div class="flexBox" id="mainPage" style="flex-direction: column">
         <div class="flexBox" id="resetSubPage" style="flex-direction: column">
-            <button class="settingsButton" onclick="save()">You have alerted the gwa</button>
+            <div class="flexBox" id="resetContainer" style="flex-direction: column"></div>
         </div>
     </div>
     <div class="flexBox" id="settingsPage" style="flex-direction: column">
