@@ -1,5 +1,5 @@
 //Important Constants for Loading
-const TABS = ["main", "settings"]
+const TABS = ["main", "finite", "settings"]
 
 const uHTML = {
     update(){
@@ -19,5 +19,6 @@ const uHTML = {
         //Initialize all Tabs
         initResets()
         initTubeHTML()
+        initAutos()
     }
 }

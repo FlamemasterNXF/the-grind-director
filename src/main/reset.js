@@ -12,11 +12,21 @@ const resetData = [
     {
         costBase: D(1e5),
         costExponent: () => D(50).pow(resetData[1].scaling()),
-        scaling: () => D(5).pow(Decimal.floor(data.resets[1].div(5))),
+        scaling: () => D(5).pow(Decimal.floor(data.resets[1].div(5))).pow(1/(2**data.resets[2].toNumber())),
         eff: () => D(3).pow(data.resets[1]),
         currency: () => data.number,
         resetDesc: 'Number and Reset 1',
         desc: 'raise Number gain to the 3rd Power',
+        costDesc: 'Number'
+    },
+    {
+        costBase: D("1e1000"),
+        costExponent: () => D(1000).pow(resetData[2].scaling()),
+        scaling: () => D(5).pow(Decimal.floor(data.resets[2].div(2))),
+        eff: () => D(3).pow(data.resets[1]),
+        currency: () => data.number,
+        resetDesc: 'Number and previous Resets',
+        desc: 'Square Root Reset 2\'s Scaling',
         costDesc: 'Number'
     },
 ]

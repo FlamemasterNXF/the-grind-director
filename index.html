@@ -27,6 +27,7 @@
     <script defer src="src/main/number.js"></script>
     <script defer src="src/main/reset.js"></script>
     <script defer src="src/main/tube.js"></script>
+    <script defer src="src/main/automation.js"></script>
 
     <title>The Grind: Director's Cut</title>
 </head>
@@ -69,6 +70,8 @@
         <button class="tabButton" id="settingsNav" onclick="switchTab('settings')" style="color: gray; border-color: #4a4a4a">Settings</button>
     </div>
     <div class="flexBox" id="mainPage" style="flex-direction: column">
+        <div class="flexBox" id="automationContainer" style="flex-direction: row; margin-bottom: 1rem">
+        </div>
         <div class="flexBox" id="resetSubPage" style="flex-direction: column">
             <div class="flexBox" id="resetContainer" style="flex-direction: column"></div>
         </div>

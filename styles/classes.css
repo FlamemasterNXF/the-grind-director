@@ -22,6 +22,15 @@
     border: 2px solid #4b001a;
     color: crimson;
 }
+.auto{
+    width: 15rem;
+    height: 5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    background: black;
+    border: 2px solid #340012;
+    color: #bd1414;
+}
 #tubeButton{
     width: 30rem;
     height: 7rem;

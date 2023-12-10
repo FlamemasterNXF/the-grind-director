@@ -47,7 +47,7 @@ function allEqual(arr, i){
 let logn = (num, logBase) => num === 0 ? 0 : Math.log10(num) / Math.log10(logBase);
 
 function fade(element) {
-    let op = 0.1;  // initial opacity
+    let op = 0.05;  // initial opacity
     DOM(element).style.display = 'block';
     DOM(element).style.opacity = 0
     const timer = setInterval(function () {

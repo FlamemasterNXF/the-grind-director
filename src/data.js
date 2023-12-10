@@ -12,6 +12,7 @@ function getDefaultObject() {
         nav: {current:"main", last:"main"},
         number: D(0),
         resets: Array(5).fill(D(0)),
+        autoEnabled: Array(5).fill(false),
         infinityTubes:0,
         stage:0,
         loadedVersion: VERSION,
