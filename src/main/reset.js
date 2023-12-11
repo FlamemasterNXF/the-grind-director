@@ -33,7 +33,7 @@ const resetData = [
         costBase: D("e1e1000"),
         costExponent: () => D("1e100").pow(resetData[3].scaling()),
         scaling: () => D(1e4).pow(Decimal.floor(data.resets[3].div(1))),
-        eff: () => D(2).pow(data.resets[3]).pow(D(1).div(D(2).pow(jupData[3].effect()))).pow(getResetEffect(4)),
+        eff: () => D(2).pow(data.resets[3]).pow(D(1).div(jupData[3].effect())).pow(getResetEffect(4)),
         currency: () => data.number,
         resetDesc: 'Number and previous Resets',
         desc: 'Raise the 2nd Infinity Tube Effect and Number to the 2nd Power',
