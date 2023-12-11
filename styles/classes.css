@@ -52,6 +52,30 @@
     margin-left: 1rem;
     margin-right: 1rem;
 }
+#slowdown{
+    border: 2px solid darkgreen;
+    background-color: black;
+    color: #009f00;
+    width: 30rem;
+    height: 10rem;
+    margin-top: 5rem;
+}
+#end{
+    border: 0px solid white;
+    background-color: black;
+    color: #009696;
+    width: 30rem;
+    height: 10rem;
+    margin-top: 5rem;
+}
+#reset{
+    border: 2px solid #2f2f2f;
+    background-color: black;
+    color: dimgrey;
+    width: 10rem;
+    height: 5rem;
+    margin-top: 15rem;
+}
 .tabButton{
     width: 10rem;
     height: 1.5rem;

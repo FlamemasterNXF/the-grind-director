@@ -19,6 +19,7 @@ function getDefaultObject() {
         numberRemoved: D(0),
         jAuto:false,
         splitAuto:false,
+        slowdown:false,
         stage:0,
         loadedVersion: VERSION,
         isBeta: IS_BETA,

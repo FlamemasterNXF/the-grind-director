@@ -7,10 +7,13 @@ function mainLoop() {
     if(isNaN(uDiff)) uDiff = 50/1000
 
     data.number = data.number.plus(numberGain().times(uDiff))
-    data.j = data.j.plus(jGain().times(uDiff))
     automateAllResets()
-    automateJResets()
-    automateSplits()
+
+    if(!data.slowdown){
+        data.j = data.j.plus(jGain().times(uDiff))
+        automateJResets()
+        automateSplits()
+    }
 
     // Check for hotkey usage
     //if (controls["m"].pressed) something()

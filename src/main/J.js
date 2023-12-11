@@ -17,7 +17,7 @@ const jupData = [
     {
         desc: 'SPLIT<br>Raise <b>J</b> gain to the 2nd Power but Half the Reset Bulk Amounts, Square Root the 4th Reset\'s Effect, Reset <b>J</b>, and REM�VE "Number"',
         cost: () => D(data.jup[3].plus(1)).times(D(100).pow(data.jup[3].pow(3))).plus(9999).pow(Decimal.max(1, D(100).times(Decimal.floor(data.jup[3].div(9))))),
-        effect: () => D(2).pow(data.jup[3])
+        effect: () => data.slowdown ? D(1) : D(2).pow(data.jup[3])
     },
 ]
 
@@ -27,7 +27,7 @@ function initJUPS(){
         let el = document.createElement('button')
         el.className = 'jButton'
         el.id = `jup${i}`
-        el.innerHTML = `${jupData[i].desc} ${i === 3 ? '' : `but REM�VE "Number"`}<br>Cost: ${format(jupData[i].cost())} J`
+        el.innerHTML = data.slowdown ? 'Forgotten.' : `${jupData[i].desc} ${i === 3 ? '' : `but REM�VE "Number"`}<br>Cost: ${format(jupData[i].cost())} J`
         el.addEventListener("click", ()=>buyJUP(i))
         if(i === 3){
             el.style.width = '40rem'
@@ -40,10 +40,13 @@ function initJUPS(){
 }
 
 function updateJHTML(){
-    DOM(`j`).innerHTML = `YOU HAVE <span style="font-size: 1.5rem">${format(data.j)}</span> J${data.jup[3].gt(0) ? `/${formatWhole(data.jup[3].plus(1))}` : ''}.<br><span style="font-size: 1rem; font-family: DosisLight">You are OBTAINING� ${format(jGain())}/s</span>`
+    if(data.slowdown) DOM(`slowdown`).innerText = `Eternity Awaits.`
+    DOM(`jNav`).innerText = data.slowdown ? `LOST` : `The J`
+    DOM(`j`).innerHTML = data.slowdown ? `The Singularity Pushes Onwards to Infinity.`
+        : `YOU HAVE <span style="font-size: 1.5rem">${format(data.j)}</span> J${data.jup[3].gt(0) ? `/${formatWhole(data.jup[3].plus(1))}` : ''}.<br><span style="font-size: 1rem; font-family: DosisLight">You are OBTAINING� ${format(jGain())}/s</span>`
 }
 function updateJUPHTML(i){
-    DOM(`jup${i}`).innerHTML = `${jupData[i].desc} ${i === 3 ? '' : `but REM�VE "Number"`}<br>Cost: ${format(jupData[i].cost())} J`
+    DOM(`jup${i}`).innerHTML = data.slowdown ? 'Forgotten.' : `${jupData[i].desc} ${i === 3 ? '' : `but REM�VE "Number"`}<br>Cost: ${format(jupData[i].cost())} J`
 }
 
 function buyJUP(i){
@@ -73,6 +76,7 @@ function automateJUP(i){
 }
 
 function automateSplits(){
+    if(data.slowdown) return
     if(data.splitAuto){
         if(data.infinityTubes > 4){
             data.jup[3] = data.jup[3].plus(D(2).pow(getResetEffect(4)))
@@ -83,9 +87,15 @@ function automateSplits(){
 }
 
 function automateJResets(){
+    if(data.slowdown) return
     for (let i = 0; i < jupData.length-1; i++) {
         automateJUP(i)
     }
+}
+
+function checkJAutos(){
+    DOM(`jAuto`).style.display = isXUnlocked('jAuto') ? 'block' : 'none'
+    DOM(`splitAuto`).style.display = isXUnlocked('splitAuto') ? 'block' : 'none'
 }
 
 function removeNumber(){

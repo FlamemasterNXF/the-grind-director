@@ -17,8 +17,9 @@ const uHTML = {
         //Show and Hide things, based on data
         DOM(`finiteNav`).style.display = isXUnlocked('finiteNav') ? 'block' : 'none'
         DOM(`jNav`).style.display = isXUnlocked('jNav') ? 'block' : 'none'
-        DOM(`jAuto`).style.display = isXUnlocked('jAuto') ? 'block' : 'none'
-        DOM(`splitAuto`).style.display = isXUnlocked('splitAuto') ? 'block' : 'none'
+        DOM(`slowdownNav`).style.display = isXUnlocked('slowdownNav') ? 'block' : 'none'
+        DOM(`endNav`).style.display = isXUnlocked('endNav') ? 'block' : 'none'
+        checkJAutos()
 
         //Initialize all Tabs
         initResets()

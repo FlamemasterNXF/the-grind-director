@@ -14,14 +14,14 @@ let tubeMilestones = [
         currencyName: 'Reset 3'
     },
     {
-        req: D("ee27393100"),
+        req: D("e1e100000"),
         currency: () => data.number,
         effect: () => D("e1e100").pow(data.resets[2]),
         desc: 'Reset 3 now raises Number gain to the e1e100th power',
         currencyName: 'Number'
     },
     {
-        req: D("eee1e308"),
+        req: D("ee1e300"),
         currency: () => data.number,
         effect: () => 2,
         desc: 'Unlock the J',
@@ -36,17 +36,24 @@ let tubeMilestones = [
         currencyName: 'J'
     },
     {
+        req: 1000,
+        currency: () => data.resets[0],
+        effect: () => D("e1e100").pow(data.resets[0]),
+        desc: 'Apply the 2nd Infinity Tube Effect to Reset 1',
+        currencyName: 'Reset 1'
+    },
+    {
         req: Infinity,
-        currency: () => data.number,
-        effect: () => 2,
-        desc: '???',
-        currencyName: '???'
+        currency: () => data.resets[0],
+        effect: () => 1,
+        desc: 'Nothing.',
+        currencyName: ''
     },
 ]
 
 function initTubeHTML() {
     const container = DOM('tubeMilestoneContainer')
-    for (let i = 0; i < tubeMilestones.length; i++) {
+    for (let i = 0; i < tubeMilestones.length-1; i++) {
         let el = document.createElement('t')
         el.className = 'tubeMilestone'
         el.id = `tubeMilestone${i}`
@@ -75,4 +82,4 @@ function enterInfinityTube(){
     updateInfinityTubeHTML()
 }
 
-let getInfinityTubeEffect = (i) => data.infinityTubes > i ? tubeMilestones[i].effect() : 1
+let getInfinityTubeEffect = (i) => data.infinityTubes > i ? tubeMilestones[i].effect() : D(1)

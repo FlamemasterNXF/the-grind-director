@@ -29,6 +29,7 @@
     <script defer src="src/main/tube.js"></script>
     <script defer src="src/main/automation.js"></script>
     <script defer src="src/main/J.js"></script>
+    <script defer src="src/main/slowdown.js"></script>
 
     <title>The Grind: Director's Cut</title>
 </head>
@@ -69,6 +70,8 @@
         <button class="tabButton" id="mainNav" onclick="switchTab('main'); switchSubtab(mainTab, 'main')" style="color: #da2020; border-color: #781313 ">Reset</button>
         <button class="tabButton" id="finiteNav" onclick="switchTab('finite'); switchSubtab(finiteTab, 'finite')" style="color: #da5220; border-color: #784013 ">Infinity Tube</button>
         <button class="tabButton" id="jNav" onclick="switchTab('j'); switchSubtab(jTab, 'j')" style="color: #B14565; border-color: #B14565 ">The J</button>
+        <button class="tabButton" id="slowdownNav" onclick="switchTab('slowdown'); switchSubtab(slowdownTab, 'slowdown')" style="color: #009f00; border-color: darkgreen ">Slowdown</button>
+        <button class="tabButton" id="endNav" onclick="switchTab('end'); switchSubtab(endTab, 'end')" style="color: #009696; border-color: #007272 ">The End.</button>
         <button class="tabButton" id="settingsNav" onclick="switchTab('settings')" style="color: gray; border-color: #4a4a4a">Settings</button>
     </div>
     <div class="flexBox" id="mainPage" style="flex-direction: column">
@@ -94,6 +97,17 @@
                 <button class="jButton" id="jAuto" style="height: 5rem; width: 15rem; margin-top: 1rem; color: #792d43; border-color: #792d43" onclick="toggleJAuto()">AUTOMATE THE JJJJ</button>
                 <button class="jButton" id="splitAuto" style="height: 5rem; width: 15rem; margin-top: 1rem; color: #792d43; border-color: #792d43" onclick="toggleSplitAuto()">AUTOMATE THE JJJJ</button>
             </div>
+        </div>
+    </div>
+    <div class="flexBox" id="slowdownPage" style="flex-direction: column; display: none">
+        <div class="flexBox" id="slowdownSubPage" style="flex-direction: column">
+            <button id="slowdown" onclick="slowdown()">Some things must be left behind for Infinity.<br><br>ENTER THE SLOWDOWN<br><br>COLLAPSE⚠ the <b>J</b> into a Singularity, but Reset 4 and the Bulk Amounts are no longer SPLIT, the 5th Reset Automator is Unlocked, and the 2nd Infinity Tube Effect now effects all Resets but the 1st.<br><span style="font-size: 0.6rem; color: #792d43">...do you.. R�M�MB�R?</span></button>
+        </div>
+    </div>
+    <div class="flexBox" id="endPage" style="flex-direction: column; display: none">
+        <div class="flexBox" id="endSubPage" style="flex-direction: column">
+            <button id="end">So here we are again.<br><br>Where did you think this would go?<br><br>You took the same path: increasing your Number at all costs, chasing Infinity, and killing the only <span style="color: #B14565">•PURE•</span> thing in this place.<br><br>...did you think there would be some great ending? Some magical approach to Infinity? Did you truly think that <span style="color: #ce460b">Thing</span> could lead you to it?<br><br>You disgusting idiotic creature.<br><br>Go on, reset this place. Do it all again. You will never find a different outcome. I wonder... do you even care? Do you want Infinity? Or do you just enjoy the endless pursuit of it?<br><br><br>Go ahead, I won't beg for a different outcome this time. I know what you are.</button>
+            <button id="reset" onclick="fullReset()">Reset the Game</button>
         </div>
     </div>
     <div class="flexBox" id="settingsPage" style="flex-direction: column">

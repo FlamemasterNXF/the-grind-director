@@ -17,7 +17,11 @@ function toggleAuto(i){
 }
 
 function automateReset(i){
-    if(i === 1 && getInfinityTubeEffect(1).gt(1) && resetData[i].currency().gte(getResetCost(i))){
+    if(i === 0 && data.slowdown && getInfinityTubeEffect(5).gt(1) && resetData[i].currency().gte(getResetCost(i))){
+        data.resets[i] = data.resets[i].plus(getInfinityTubeEffect(1))
+        return updateResetHTML(i)
+    }
+    if((i === 1 || (i !== 0 && data.slowdown)) && getInfinityTubeEffect(1).gt(1) && resetData[i].currency().gte(getResetCost(i))){
         data.resets[i] = data.resets[i].plus(D(getInfinityTubeEffect(1)).div(jupData[3].effect()))
         return updateResetHTML(i)
     }

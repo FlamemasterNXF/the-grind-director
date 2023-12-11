@@ -41,12 +41,12 @@ const resetData = [
     },
     {
         costBase: D("1e12"),
-        costExponent: () => D(1.85).pow(resetData[4].scaling()),
-        scaling: () => D(7).pow(Decimal.floor(data.resets[4].div(10))),
+        costExponent: () => D(1.83).pow(resetData[4].scaling()),
+        scaling: () => data.resets[4].gt(9) ? D(7).pow(Decimal.floor(data.resets[4].div(10))) : D(1),
         eff: () => D(2).pow(data.resets[4]),
         currency: () => data.number,
         resetDesc: 'Number and previous Resets',
-        desc: 'Raise Number gain, the 4th Reset\'s Effect, and the SPLIT Automator Bulk Amount to the 2nd Power',
+        desc: 'Raise Number gain and the 4th Reset\'s Effect to the 2nd Power',
         costDesc: 'Number'
     },
 ]
@@ -62,6 +62,7 @@ function initResets(){
         el.style.display = isXUnlocked(`reset${i}`) ? 'block' : 'none'
         container.append(el)
     }
+    updateResetHTML(4)
 }
 
 function updateResetHTML(i){

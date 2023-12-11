@@ -9,6 +9,8 @@ function switchTab(tab){
 let mainTab = "reset"
 let finiteTab = "finite"
 let jTab = "j"
+let slowdownTab = "slowdown"
+let endTab = "end"
 let settingsTab = "saving"
 
 function switchSubtab(t, mode){
@@ -33,6 +35,20 @@ function switchSubtab(t, mode){
         DOM(`${jTab}SubPage`).style.display = `none`
         DOM(`${t}SubPage`).style.display = `flex`
         jTab = t
+    }
+
+    // Special Slowdown Rules
+    if(mode === "slowdown"){
+        DOM(`${slowdownTab}SubPage`).style.display = `none`
+        DOM(`${t}SubPage`).style.display = `flex`
+        jTab = t
+    }
+
+    // Special End Rules
+    if(mode === "end"){
+        DOM(`${endTab}SubPage`).style.display = `none`
+        DOM(`${t}SubPage`).style.display = `flex`
+        endTab = t
     }
 
     // Special Settings Rules
